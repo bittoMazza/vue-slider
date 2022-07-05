@@ -37,38 +37,28 @@ const app = new Vue(
         },
         methods: {
             nextSlide : function(){
-                this.thumbnail[this.indexImage].classList.remove('active');
                 this.indexImage++;
                 if(this.indexImage === this.slides.length){
                     this.indexImage = 0
                 }
-                this.thumbnail[this.indexImage].classList.add('active');
-                console.log(this.thumbnail)
+                
             },
             previousSlide : function(){
-                this.thumbnail[this.indexImage].classList.remove('active');
                 this.indexImage--;
                 if(this.indexImage == -1){
                     this.indexImage = this.slides.length - 1
                 }
-                this.thumbnail[this.indexImage].classList.add('active');
+                
             },
-            clickedThumb : function(path){
-                this.thumbnail[this.indexImage].classList.remove('active');
-                for(let i = 0 ; i < this.slides.length; i++){
-                    if(this.slides[i].image == path){
-                        this.indexImage = i;
-                        this.thumbnail[this.indexImage].classList.add('active');
-                        i = this.slides.length;
-                    }
-                }
+            clickedThumb : function(indice){
+                this.indexImage = indice;
             }
             
         },
-        created(){
+        /* created(){
             intervalElement = setInterval(this.nextSlide,3000)
         }
-        
+         */
 
     }
     

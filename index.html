@@ -14,7 +14,7 @@
     <div id="app">
 
         <div class="container" >
-            <div class="slider-wrapper" tabindex="0">
+            <div class="slider-wrapper" @mouseover="" tabindex="0">
 
                 <div class="item">
                     <img :src="slides[indexImage].image" alt="Svezia" />
@@ -29,20 +29,8 @@
                 <div class="thumbs">
                     <div @click="previousSlide" class="prev"></div>
                     <div @click="nextSlide" class="next"></div>
-                    <div class="thumb active" @click="clickedThumb">
-                        <img src="img/01.jpg" alt="Svezia"/>
-                    </div>
-                    <div class="thumb" @click="clickedThumb">
-                        <img src="img/02.jpg" alt="Svizzera" />
-                    </div>
-                    <div  class="thumb" @click="clickedThumb">
-                        <img src="img/03.jpg" alt="Gran Bretagna" />
-                    </div>
-                    <div  class="thumb" @click="clickedThumb">
-                        <img src="img/04.jpg" alt="Germania" />
-                    </div>
-                    <div  class="thumb" @click="clickedThumb">
-                        <img src="img/05.jpg" alt="Paradise" />
+                    <div v-for="(element,index) in slides" :class="`thumb ${index==indexImage? 'active' : ''}`" @click="clickedThumb(index)">
+                        <img :src="slides[index].image" :alt="`slides[index].text`"/>
                     </div>
                 </div>
 
