@@ -6,6 +6,7 @@ const app = new Vue(
         data: {
             indexImage : 0,
             thumbnail : document.getElementsByClassName('thumb'),
+            intervalElement : null,
             slides : [
                 {
                     image: 'img/01.jpg',
@@ -51,8 +52,20 @@ const app = new Vue(
                     this.indexImage = this.slides.length - 1
                 }
                 this.thumbnail[this.indexImage].classList.add('active');
+            },
+            clickedThumb : function(path){
+                this.thumbnail[this.indexImage].classList.remove('active');
+                for(let i = 0 ; i < this.slides.length; i++){
+                    if(this.slides[i].image == path){
+                        this.indexImage = i;
+                        this.thumbnail[this.indexImage].classList.add('active');
+                        i = this.slides.length;
+                    }
+                }
             }
+            
         },
+        
 
     }
     

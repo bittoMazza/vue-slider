@@ -29,19 +29,19 @@
                 <div class="thumbs">
                     <div @click="previousSlide" class="prev"></div>
                     <div @click="nextSlide" class="next"></div>
-                    <div class="thumb active">
+                    <div class="thumb active" @click="clickedThumb">
                         <img src="img/01.jpg" alt="Svezia"/>
                     </div>
-                    <div class="thumb">
+                    <div class="thumb" @click="clickedThumb">
                         <img src="img/02.jpg" alt="Svizzera" />
                     </div>
-                    <div class="thumb">
+                    <div  class="thumb" @click="clickedThumb">
                         <img src="img/03.jpg" alt="Gran Bretagna" />
                     </div>
-                    <div class="thumb">
+                    <div  class="thumb" @click="clickedThumb">
                         <img src="img/04.jpg" alt="Germania" />
                     </div>
-                    <div class="thumb">
+                    <div  class="thumb" @click="clickedThumb">
                         <img src="img/05.jpg" alt="Paradise" />
                     </div>
                 </div>
