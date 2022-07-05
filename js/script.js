@@ -5,6 +5,7 @@ const app = new Vue(
         el:'#app',
         data: {
             indexImage : 0,
+            thumbnail : document.getElementsByClassName('thumb'),
             slides : [
                 {
                     image: 'img/01.jpg',
@@ -35,18 +36,24 @@ const app = new Vue(
         },
         methods: {
             nextSlide : function(){
+                this.thumbnail[this.indexImage].classList.remove('active');
                 this.indexImage++;
                 if(this.indexImage === this.slides.length){
                     this.indexImage = 0
                 }
+                this.thumbnail[this.indexImage].classList.add('active');
+                console.log(this.thumbnail)
             },
             previousSlide : function(){
+                this.thumbnail[this.indexImage].classList.remove('active');
                 this.indexImage--;
                 if(this.indexImage == -1){
                     this.indexImage = this.slides.length - 1
                 }
+                this.thumbnail[this.indexImage].classList.add('active');
             }
-        }
+        },
+
     }
     
 )
