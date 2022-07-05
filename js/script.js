@@ -5,7 +5,6 @@ const app = new Vue(
         el:'#app',
         data: {
             indexImage : 0,
-            thumbnail : document.getElementsByClassName('thumb'),
             intervalElement : null,
             slides : [
                 {
@@ -52,13 +51,22 @@ const app = new Vue(
             },
             clickedThumb : function(indice){
                 this.indexImage = indice;
+            },
+
+            startAuto : function(){
+                intervalElement = setInterval(this.nextSlide,3000)
+            },
+
+            blockAuto : function(){
+                clearInterval(intervalElement)
             }
+
+            
             
         },
-        /* created(){
-            intervalElement = setInterval(this.nextSlide,3000)
+        created(){
+           intervalElement = setInterval(this.nextSlide,3000)
         }
-         */
 
     }
     
